@@ -1,0 +1,93 @@
+.formInput {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  transition: margin .25s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform .25s;
+  animation: enter .85s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0, .75, 0, 1.25);
+}
+
+@keyframes enter {
+  0% {
+    transform: translateY(35px) scale(.75);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.formInput:hover {
+  margin: 8px 0;
+}
+
+.formInput:focus-within {
+  opacity: 1 !important;
+}
+
+form .formInput:nth-child(1) { animation-delay: 0s }
+form .formInput:nth-child(2) { animation-delay: .08s }
+form .formInput:nth-child(3) { animation-delay: .16s }
+form .formInput:nth-child(4) { animation-delay: .24s }
+form .formInput:nth-child(5) { animation-delay: .32s }
+form .formInput:nth-child(6) { animation-delay: .40s }
+form .formInput:nth-child(7) { animation-delay: .48s }
+form .formInput:nth-child(8) { animation-delay: .56s }
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 8px 0 0 0;
+}
+
+input {
+  padding: 12px 15px;
+  margin: 8px 0 10px 0;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  font-family: inherit;
+  transition: border-color .15s, outline .15s, margin .35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+input:focus {
+  opacity: 1 !important;
+  border-color: #0088ff;
+  outline: 3px solid rgba(0, 136, 255, .25);
+  margin: 16px 0 18px 0;
+}
+
+
+form:focus-within .formInput {
+  opacity: .75;
+}
+
+span {
+  font-size: 11px;
+  padding: 0 0 10px 0;
+  color: #ff3300;
+  display: none;
+}
+
+input:invalid[focused="true"] {
+  border-color: #ff3300;
+  outline: 3px solid rgba(255, 51, 0, .25);
+}
+
+input:invalid[focused="true"] ~ span {
+  display: block;
+  animation: invalid .35s;
+  transform-origin: 0 0;
+  animation-timing-function: cubic-bezier(0, .75, .25, 1.45);
+}
+
+@keyframes invalid {
+  50% {
+    transform: scale(1.5) rotate(-3deg);
+    margin-top: 35px;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
